@@ -44,31 +44,6 @@
                 </a>
             @endforeach
 
-            {{--
-            <a class="col bg-white rounded justify-content-center align-content-center"
-                href="{{ route('donation.index') }}">
-                <div class="text-center" style="margin-top:13.5px;">
-                    <div class="img-category">
-                        <img src="{{ asset('assets/image/kategori/superior.png') }}" width="40px" height="40px">
-                    </div>
-                    <div class="text-category">
-                        <p>Superior</p>
-                    </div>
-                </div>
-            </a>
-
-            <a class="col bg-white rounded justify-content-center align-content-center"
-                href="{{ route('donation.index') }}">
-                <div class="text-center" style="margin-top:13.5px;">
-                    <div class="img-category">
-                        <img src="{{ asset('assets/image/kategori/luxury.png') }}" width="40px" height="40px">
-                    </div>
-                    <div class="text-category">
-                        <p>Deluxe</p>
-                    </div>
-                </div>
-            </a> --}}
-
             <a class="col bg-white rounded justify-content-center align-content-center" href="{{ route('about') }}">
                 <div class="text-center" style="margin-top:13.5px;">
                     <div class="img-category">
@@ -89,7 +64,7 @@
             @endphp
 
             @foreach ($rooms as $room)
-                <a href="#">
+                <a href="{{ route('room.detail', $room->id) }}">
                     <div class="room row" style="width: 100% !important; margin-left: 4.5px">
                         <div class="col-5 bg-success rounded-start campaign-banner-1" style="height: 210px">
                             <img class="image-campagn-banner rounded" src="{{ $room->image }}">

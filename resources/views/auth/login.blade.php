@@ -1,4 +1,4 @@
-@extends('layout.layout-email')
+@extends('layout.layout-auth')
 
 @section('content')
     @if (Session::get('fail') !== null)

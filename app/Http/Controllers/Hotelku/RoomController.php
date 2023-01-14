@@ -12,13 +12,20 @@ class RoomController extends Controller
     {
         $rooms = Room::with('type')->inRandomOrder()->get();
 
-        return view('room', compact('rooms'));
+        return view('room.room', compact('rooms'));
     }
 
     public function room_category($id)
     {
         $rooms = Room::where('type_id', $id)->with('type')->inRandomOrder()->get();
 
-        return view('room', compact('rooms'));
+        return view('room.room', compact('rooms'));
+    }
+
+    public function detail($id)
+    {
+        $room = Room::find($id);
+
+        return view('room.detail-kamar', compact('room'));
     }
 }

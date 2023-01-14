@@ -39,7 +39,7 @@ class AuthController extends Controller
             Auth::attempt(request()->only('email', 'password'));
             return redirect()->route('profile');
         } catch (QueryException $errror) {
-            return view('main.errror-page');
+            return view('errror-page');
         }
     }
 
@@ -62,7 +62,7 @@ class AuthController extends Controller
                 }
             }
         } catch (QueryException $errror) {
-            return view('main.errror-page');
+            return view('errror-page');
         }
     }
 }

@@ -15,12 +15,12 @@ class ProfileController extends Controller
 {
     public function index()
     {
-        return view('profile');
+        return view('profile.profile');
     }
 
     public function editProfile()
     {
-        return view('ubah-profile');
+        return view('profile.ubah-profile');
     }
 
     public function editProfileStore()
@@ -52,7 +52,7 @@ class ProfileController extends Controller
 
     public function editPassword()
     {
-        return view('ubah-password');
+        return view('profile.ubah-password');
     }
 
     public function editPasswordStore()
@@ -84,7 +84,7 @@ class ProfileController extends Controller
             Auth::logout();
             return redirect()->route('profile');
         } catch (QueryException $errror) {
-            return view('main.errror-page');
+            return view('errror-page');
         }
     }
 

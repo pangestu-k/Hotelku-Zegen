@@ -34,7 +34,7 @@
         <br>
 
         <div class="banner-content text-center" style="width: 100% !important">
-            <a href="#">
+            <a href=" {{ route('order.user', auth()->user()->customer->id) }} ">
                 <div class="donation row bg-dark rounded text-white" style="width: 100% !important; margin-left: 4.5px;">
                     <div class="col-3" style="height: 80px; line-height: 60px">
                         <div class="bg-warning rounded" style="height: 60px; width: 60px; margin-top:10px">

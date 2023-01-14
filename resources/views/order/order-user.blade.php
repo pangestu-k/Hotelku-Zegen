@@ -2,42 +2,76 @@
 
 @section('content')
     <div class="container main-content my-4">
-        @if ($donations->count() !== 0)
-            @foreach ($donations as $donation)
+        @if ($orders->count() !== 0)
+            @php
+                $count_order = count($orders);
+            @endphp
+
+            @foreach ($orders as $order)
                 <div class="donation row" style="width: 100% !important; margin-left: 4.5px">
-                    <div class="col-5 bg-dark rounded-start campaign-banner-1" style="height: 210px">
-                        <img class="image-campagn-banner rounded" src="{{ $donation->campaign->gambar }}">
+                    <div class="col-5 bg-dark rounded-start campaign-banner-1" style="height: 280px">
+                        <img class="image-campagn-banner rounded" src="{{ $order->room->image }}">
                     </div>
-                    <div class="col bg-dark rounded-end text-white p-3" style="height: 210px">
-                        <h5 class="donation-title">{{ $donation->campaign->judul }}</h5>
+                    <div class="col bg-dark rounded-end text-white p-3" style="height: 280px">
+                        <h5 class="donation-title">Pemesanan Kamar {{ $order->room->name }}</h5>
+                        @if ($order->status == 'rescheadule')
+                            <p>
+                                Ajuan Rescheadule ke : {{ date('d M Y', strtotime($order->rescheadule)) }}
+                            </p>
+                            <p>
+                                Reservasi : {{ date('d M Y', strtotime($order->checkin_date)) }} -
+                                {{ date('d M Y', strtotime($order->checkout_date)) }}
+                            </p>
+                        @else
+                            <p>
+                                Reservasi untuk : {{ date('d M Y', strtotime($order->checkin_date)) }}
+                            </p>
+                            <p>
+                                Tanggal Checkout : {{ date('d M Y', strtotime($order->checkout_date)) }}
+                            </p>
+                        @endif
                         <p style="font-weight: lighter; font-size: 15px; margin-top:20px">
-                            Nominal Donasi Anda : <br>
+                            Total Transaksi : <br>
                             <b style="font-weight: bold !important">
-                                Rp. {{ number_format($donation->jumlah) }}
+                                Rp. {{ number_format($order->total) }}
                             </b>
                         </p>
+                        <br>
 
-                        @if ($donation->status == 'confirmed')
-                            <button type="button" class="btn btn-success rounded-pill">Selesai</button>
-                        @elseif($donation->status == 'fail')
-                            <button type="button" class="btn btn-danger rounded-pill">Expired</button>
+                        @if ($order->status == 'confirmed')
+                            <button type="button" class="btn btn-success rounded-pill"
+                                onclick="alert('Transaksi Sudah Selesai Silahkan Menikmati Fasilitas Hotel Kami')">
+                                Berhasil</button>
+                            <a href="{{ route('order.resheadule_get', $order->id) }}"
+                                class="btn btn-secondary rounded-pill">
+                                Ingin Rescheadule ?
+                            </a>
+                        @elseif($order->status == 'rescheadule')
+                            <button type="button" class="btn btn-primary rounded-pill"
+                                onclick="alert('Menunggu Konfirmasi Admin')">Menunggu Konfirmasi Admin</button>
+                        @elseif($order->status == 'waiting')
+                            <button type="button" class="btn btn-primary rounded-pill"
+                                onclick="alert('Menunggu Konfirmasi Admin')">Menunggu Konfirmasi Admin</button>
                         @else
                             <button type="button" class="btn btn-warning rounded-pill" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Konfirmasi</button>
+                                data-bs-target="#exampleModal" data-bs-whatever="@mdo">Kirimkan Bukti Transfer</button>
                         @endif
 
                     </div>
                 </div>
+
+                @if ($loop->iteration !== $count_order)
+                    <br>
+                @endif
             @endforeach
         @else
             <div class="alert bg-dark text-white alert-dismissible fade show" role="alert">
                 <p>
-                    Anda Belum Memiliki Donasi Apapun 😊, Mau Ikutan Donasi <br><br>
-                    <a href="{{ route('donation.index') }}" class="btn btn-primary">
-                        Donasi
+                    Anda Belum Memiliki Pesanan Apapun 😊, Yuk Langsung Pesan <br><br>
+                    <a href="{{ route('donation.index') }}" class="btn btn-success">
+                        Booking
                     </a>
                 </p>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         @endif
 
@@ -52,15 +86,16 @@
                     <button type="button" class="btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <form action="{{ route('order.confirm', $order->id) }}" enctype="multipart/form-data" method="POST">
+                        @csrf
                         <div class="file-upload">
                             <button class="file-upload-btn" type="button"
                                 onclick="$('.file-upload-input').trigger( 'click' )">Pilih
                                 Gambar</button>
 
                             <div class="image-upload-wrap">
-                                <input class="file-upload-input" type='file' id="upload-image" onchange="readURL(this);"
-                                    accept="image/*" />
+                                <input name="photo" class="file-upload-input" type='file' id="upload-image"
+                                    onchange="readURL(this);" accept="image/*" />
                                 <div class="drag-text">
                                     <h3>Drag & drop File Gambar yang Akan Dikirimkan</h3>
                                 </div>
@@ -73,11 +108,11 @@
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning">Kirim</button>
+                    <button type="submit" class="btn btn-warning">Kirim</button>
+                    </form>
                 </div>
             </div>
         </div>

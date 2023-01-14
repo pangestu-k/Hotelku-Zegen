@@ -20,7 +20,7 @@ class CreateOrdersTable extends Migration
             $table->date('booking_date');
             $table->integer('total');
             $table->integer('day');
-            $table->string('status', 10);
+            $table->string('status', 60);
             $table->date('checkin_date');
             $table->date('checkout_date');
             $table->timestamps();

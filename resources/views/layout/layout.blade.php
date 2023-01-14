@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <script src="{{ asset('assets/added/js/easy-number-separator.js') }}"></script>
     <link rel="stylesheet" href="{{ asset('assets/added/layout.css') }}">
     <link rel="icon" type="image/png" href="{{ asset('assets/image/logo/logo.png') }}" />
 
