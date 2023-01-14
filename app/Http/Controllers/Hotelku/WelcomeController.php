@@ -2,20 +2,17 @@
 
 namespace App\Http\Controllers\Hotelku;
 
-use App\Http\Controllers\Controller;
+use App\Models\Room;
+use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
-    public function __construct()
-    {
-        if (auth()->user() !== null) {
-            return redirect()->route('login')->send();
-        }
-    }
-
     public function index()
     {
-        return view('welcome');
+        $rooms = Room::with('type')->inRandomOrder()->get();
+        $types = Type::orderBy('id', 'ASC')->get();
+        return view('welcome', compact('rooms', 'types'));
     }
 }

@@ -11,6 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/added/layout.css') }}">
+    <link rel="icon" type="image/png" href="{{ asset('assets/image/logo/logo.png') }}" />
+
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.2/classic/ckeditor.js"></script>
 
     <title>Hotelku.com | Aplikasi Reservasi Hotel</title>
 </head>
@@ -40,7 +44,7 @@
                 </a>
             </div>
             <div class="col logo color text-light mx-2">
-                <a href="{{ route('donation.index') }}">
+                <a href="{{ route('room.index') }}">
                     <img src="{{ asset('assets/image/kategori/bed.png') }}" width="30px" height="30px">
                 </a>
             </div>
