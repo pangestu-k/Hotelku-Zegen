@@ -13,6 +13,7 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 - Buat Database di mysql atau postgree (postgree ada konfigurasi sendiri)
 - Tulis nama Database di file .env (sesuaikan dengan nama db yg dibuat)
     
+    
     // jika menggukan database mysql
     <p>DB_CONNECTION=mysql</p>
     <p>DB_HOST=127.0.0.1</p>
@@ -21,13 +22,17 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
     <p>DB_USERNAME=root</p>
     <p>DB_PASSWORD=</p>
     
+    
+    
     // jika menggukan database postgree sql
-    DB_CONNECTION=pgsql
-    DB_HOST=127.0.0.1
-    DB_PORT=5432
-    DB_DATABASE=hotelku
-    DB_USERNAME=postgres
-    DB_PASSWORD=root
+    <p>DB_CONNECTION=pgsql</p>
+    <p>DB_HOST=127.0.0.1</p>
+    <p>DB_PORT=5432</p>
+    <p>DB_DATABASE=hotelku</p>
+    <p>DB_USERNAME=postgres</p>
+    <p>DB_PASSWORD=root</p>
+    
+    
 
 - php artisan migrate --seed
 
