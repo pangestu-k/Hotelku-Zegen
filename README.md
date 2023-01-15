@@ -8,16 +8,33 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 <h3>Tata Cara Install 🌱</h3> 
 
 - composer install
-- copy file .env.example lalu ubah menjadi .env
-- php artisan key:generate
-- php artisan storage:link 
+- copy file .env.example lalu ubah menjadi .env / gunakan perintah cp .env.example .env
+- php artisan key:generate 
 - Buat Database di mysql atau postgree (postgree ada konfigurasi sendiri)
 - Tulis nama Database di file .env (sesuaikan dengan nama db yg dibuat)
-- php artisan migrate
-- php artisan db:seed
+    
+    // jika menggukan database mysql
+    DB_CONNECTION=mysql
+    DB_HOST=127.0.0.1
+    DB_PORT=3306
+    DB_DATABASE=hotelku
+    DB_USERNAME=root
+    DB_PASSWORD=
+    
+    // jika menggukan database postgree sql
+    DB_CONNECTION=pgsql
+    DB_HOST=127.0.0.1
+    DB_PORT=5432
+    DB_DATABASE=hotelku
+    DB_USERNAME=postgres
+    DB_PASSWORD=root
 
-<h6 class="text-gray">Email (admin/petugas) : admin@gmail.com</h6>
-<h6 class="text-gray">Password	            : password</h6>
+- php artisan migrate --seed
+
+<h6 class="text-gray">Email (admin) : admin@gmail.com</h6>
+<h6 class="text-gray">Password	    : password</h6>
+
+<a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu">Demo Aplikasi</a>
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
