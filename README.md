@@ -14,12 +14,12 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 - Tulis nama Database di file .env (sesuaikan dengan nama db yg dibuat)
     
     // jika menggukan database mysql
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3306
-    DB_DATABASE=hotelku
-    DB_USERNAME=root
-    DB_PASSWORD=
+    <p>DB_CONNECTION=mysql</p>
+    <p>DB_HOST=127.0.0.1</p>
+    <p>DB_PORT=3306</p>
+    <p>DB_DATABASE=hotelku</p>
+    <p>DB_USERNAME=root</p>
+    <p>DB_PASSWORD=</p>
     
     // jika menggukan database postgree sql
     DB_CONNECTION=pgsql
@@ -34,7 +34,7 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 <h6 class="text-gray">Email (admin) : admin@gmail.com</h6>
 <h6 class="text-gray">Password	    : password</h6>
 
-<a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu">Demo Aplikasi</a>
+Youtube : <a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu" target="_blank">Demo Aplikasi</a>
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
