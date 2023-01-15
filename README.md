@@ -39,8 +39,14 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 
 - php artisan migrate --seed
 
+    <br>
+    
+    ##
+
 <h6 class="text-gray">Email (admin) : admin@gmail.com</h6>
 <h6 class="text-gray">Password	    : password</h6>
+
+    <br>
 
 Youtube : <a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu" target="_blank">Demo Aplikasi</a>
 
