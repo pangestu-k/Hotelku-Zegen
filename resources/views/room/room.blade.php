@@ -7,7 +7,7 @@
         @endphp
 
         @foreach ($rooms as $room)
-            <a href="#">
+            <a href="{{ route('room.detail', $room->id) }}">
                 <div class="room row" style="width: 100% !important; margin-left: 4.5px">
                     <div class="col-5 bg-success rounded-start campaign-banner-1" style="height: 210px">
                         <img class="image-campagn-banner rounded" src="{{ $room->image }}">

@@ -14,7 +14,7 @@ use App\Http\Controllers\Admin\FloorController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\RommAdminController;
 use App\Http\Controllers\Admin\OrderAdminController;
-
+use App\Http\Controllers\Admin\PdfController;
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -63,6 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('floor-edit/{id}', [FloorController::class, 'update'])->name('floor.update');
         Route::delete('floor/{id}', [FloorController::class, 'delete'])->name('floor.delete');
         Route::get('type', [TypeController::class, 'list'])->name('type.list');
+
+        Route::get('generate-pdf', [PdfController::class, 'generatePdf'])->name('gen.pdf');
 
         Route::get('room-admin', [RommAdminController::class, 'list'])->name('room-admin.list');
         Route::post('room-admin', [RommAdminController::class, 'store'])->name('room-admin.store');

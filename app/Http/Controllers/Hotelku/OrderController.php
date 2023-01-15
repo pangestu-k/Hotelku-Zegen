@@ -47,7 +47,7 @@ class OrderController extends Controller
                 'status' => 'pending'
             ]);
 
-            return redirect()->route('order.user', auth()->id());
+            return redirect()->route('order.user', auth()->user()->customer->id);
         } catch (QueryException $error) {
             return view('errror-page');
         }
@@ -135,7 +135,7 @@ class OrderController extends Controller
                 'status' => 'rescheadule'
             ]);
 
-            return redirect()->route('order.user', auth()->id());
+            return redirect()->route('order.user', auth()->user()->customer->id);
         } catch (QueryException $error) {
             return view('errror-page');
         }

@@ -28,20 +28,20 @@ class CustomerController extends Controller
         ]);
 
         try {
-            // DB::transaction(function () {
-            $user = User::create([
-                'name' => request()->name,
-                'email' => request()->email,
-                'role' => 'user',
-                'password' => Hash::make('password')
-            ]);
+            DB::transaction(function () {
+                $user = User::create([
+                    'name' => request()->name,
+                    'email' => request()->email,
+                    'role' => 'user',
+                    'password' => Hash::make('password')
+                ]);
 
-            $customer = Customer::create([
-                'user_id' => $user->id,
-                'phone_number' => request()->phone_number,
-                'address' => request()->address,
-            ]);
-            // });
+                $customer = Customer::create([
+                    'user_id' => $user->id,
+                    'phone_number' => request()->phone_number,
+                    'address' => request()->address,
+                ]);
+            });
 
             return back()->with('success', 'data Kamar Berhasil di tambahkan');
         } catch (QueryException $error) {

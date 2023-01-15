@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Hotelku;
 
 use App\Models\User;
+use App\Models\Customer;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -22,23 +24,35 @@ class AuthController extends Controller
 
     public function register_store()
     {
-        $this->validate(request(), [
+        request()->validate([
             'name' => 'required',
             'email' => 'required|unique:users,email',
-            'password' => 'required|confirmed|min:6',
+            'password' => 'required|min:6',
         ]);
 
         try {
-            User::create([
-                'nama' => request()->name,
-                'email' => request()->email,
-                'password' => Hash::make(request()->password),
-                'role' => 'user'
-            ]);
+            if (request()->password != request()->password_confirmation) {
+                return back()->with('fail', ['password' => 'Password anda tidak sama.']);
+            }
+
+            DB::transaction(function () {
+                $user = User::create([
+                    'name' => request()->name,
+                    'email' => request()->email,
+                    'password' => Hash::make(request()->password),
+                    'role' => 'user'
+                ]);
+
+                $customer = Customer::create([
+                    'user_id' => $user->id,
+                    'phone_number' => request()->phone_number,
+                ]);
+            });
 
             Auth::attempt(request()->only('email', 'password'));
             return redirect()->route('dashboard');
-        } catch (QueryException $errror) {
+        } catch (QueryException $error) {
+            return $error;
             return view('errror-page');
         }
     }

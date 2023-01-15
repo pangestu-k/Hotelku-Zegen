@@ -83,7 +83,6 @@
                     </div>
                 </a>
 
-
                 @if ($loop->iteration !== $count_room)
                     <br>
                 @endif
