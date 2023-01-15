@@ -1,22 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Hotelku\AuthController;
-use App\Http\Controllers\Hotelku\OrderController;
 use App\Http\Controllers\Hotelku\RoomController;
+use App\Http\Controllers\Hotelku\OrderController;
 use App\Http\Controllers\Hotelku\ProfileController;
 use App\Http\Controllers\Hotelku\WelcomeController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\Admin\TypeController;
+use App\Http\Controllers\Admin\FloorController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\RommAdminController;
+
 
 Route::group(['middleware' => 'guest'], function () {
     Route::get('login', [AuthController::class, 'login'])->name('login');
@@ -26,6 +22,7 @@ Route::group(['middleware' => 'guest'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+    # awal user side
     Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
     Route::get('room', [RoomController::class, 'room'])->name('room.index');
@@ -50,4 +47,21 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('about', function () {
         return view('about');
     })->name('about');
+    # akhir dari user side
+
+    # awal admin side
 });
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('floor', [FloorController::class, 'list'])->name('floor.list');
+Route::post('floor', [FloorController::class, 'store'])->name('floor.store');
+Route::get('floor-edit/{id}', [FloorController::class, 'edit'])->name('floor.edit');
+Route::put('floor-edit/{id}', [FloorController::class, 'update'])->name('floor.update');
+Route::delete('floor/{id}', [FloorController::class, 'delete'])->name('floor.delete');
+Route::get('type', [TypeController::class, 'list'])->name('type.list');
+
+Route::get('room-admin', [RommAdminController::class, 'list'])->name('room-admin.list');
+Route::post('room-admin', [RommAdminController::class, 'store'])->name('room-admin.store');
+Route::get('room-admin/{id}', [RommAdminController::class, 'edit'])->name('room-admin.edit');
+Route::get('room-admin/detail/{id}', [RommAdminController::class, 'show'])->name('room-admin.show');
+Route::put('room-admin/{id}', [RommAdminController::class, 'update'])->name('room-admin.update');
+Route::delete('room-admin{id}', [RommAdminController::class, 'delete'])->name('room-admin.delete');

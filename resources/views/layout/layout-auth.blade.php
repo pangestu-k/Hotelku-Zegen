@@ -3,9 +3,9 @@
 
 <head>
     <title>Hotelku.com | Aplikasi Reservasi Hotel</title>
+    <link rel="icon" type="image/png" href="{{ asset('assets/image/logo/logo.png') }}" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/png" href="{{ asset('assets/image/logo/logo.png') }}" />
     <link rel="stylesheet" type="text/css"
         href="{{ asset('assets/login-page/fonts/font-awesome-4.7.0/css/font-awesome.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets/login-page/css/util.css') }}">

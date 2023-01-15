@@ -10,8 +10,7 @@
             <h5 class="donation-title">Kamar {{ $room->name }}</h5>
             <div class="amount-info my-1">
                 <p style="font-size: 15px">
-                    <b>Tipe Kamar : </b> <i> {{ $room->type->name }} </i> | <b>Harga :
-                        Rp.</b>{{ number_format($room->price) }} <i>/malam</i>
+                    <b>Tipe Kamar : </b> <i> {{ $room->type->name }} </i>
                 </p>
                 <p style="font-size: 15px">
                     <b>Harga : Rp.</b>{{ number_format($room->price) }} <i>/malam</i>
@@ -42,7 +41,7 @@
             <div class="card-body" style="font-style: normal">
                 <div class="row p-4 rounded" style="background-color: grey">
                     <div class="col-12">
-                        {{ $room->desc }}
+                        {!! $room->desc !!}
                     </div>
                 </div>
             </div>

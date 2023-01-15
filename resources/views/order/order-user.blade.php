@@ -68,7 +68,7 @@
             <div class="alert bg-dark text-white alert-dismissible fade show" role="alert">
                 <p>
                     Anda Belum Memiliki Pesanan Apapun 😊, Yuk Langsung Pesan <br><br>
-                    <a href="{{ route('donation.index') }}" class="btn btn-success">
+                    <a href="{{ route('welcome') }}" class="btn btn-success">
                         Booking
                     </a>
                 </p>
@@ -86,7 +86,8 @@
                     <button type="button" class="btn-light" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('order.confirm', $order->id) }}" enctype="multipart/form-data" method="POST">
+                    <form action="{{ route('order.confirm', isset($order->id) ? $order->id : 1) }}"
+                        enctype="multipart/form-data" method="POST">
                         @csrf
                         <div class="file-upload">
                             <button class="file-upload-btn" type="button"

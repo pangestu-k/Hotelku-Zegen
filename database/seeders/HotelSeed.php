@@ -58,21 +58,24 @@ class HotelSeed extends Seeder
                 'floor_id' => 1,
                 'type_id' => 3,
                 'price' => 1000000,
-                'image' => url('assets/image/room/delux-room.webp')
+                'image' => url('assets/image/room/delux-room.webp'),
+                'desc' => 'kamar ini adalah kamar tipe delux'
             ],
             [
                 'name' => 's-123',
                 'floor_id' => 1,
                 'type_id' => 2,
                 'price' => 800000,
-                'image' => url('assets/image/room/superior-room.webp')
+                'image' => url('assets/image/room/superior-room.webp'),
+                'desc' => 'kamar ini adalah kamar tipe superior'
             ],
             [
                 'name' => 'sd-123',
                 'floor_id' => 1,
                 'type_id' => 1,
                 'price' => 500000,
-                'image' => url('assets/image/room/standar-room.webp')
+                'image' => url('assets/image/room/standar-room.webp'),
+                'desc' => 'Kamar ini adalah kamar tipe standar'
             ],
         ];
 
