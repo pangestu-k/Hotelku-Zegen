@@ -58,7 +58,7 @@
             </div>
 
             <li
-                class="nav-item {{ request()->routeIs('room-admin.list') || request()->routeIs('room-admin.edit') ? 'active' : '' }}">
+                class="nav-item {{ request()->routeIs('room-admin.list') || request()->routeIs('room-admin.edit') || request()->routeIs('room-admin.show') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('room-admin.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Kamar</span></a>
@@ -77,14 +77,16 @@
                     <span>Tipe</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li
+                class="nav-item {{ request()->routeIs('order-admin.list') || request()->routeIs('order-admin.list') || request()->routeIs('order-admin.list') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('order-admin.list') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Order</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html" active>
+            <li
+                class="nav-item {{ request()->routeIs('customer.list') || request()->routeIs('customer.show') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('customer.list') }}" active>
                     <i class="fas fa-fw fa-table"></i>
                     <span>Customer</span></a>
             </li>
@@ -117,9 +119,9 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
-                                <img class="img-profile rounded-circle"
-                                    src="{{ asset('assets/image/profile/guest.png') }}">
+                                <span
+                                    class="mr-2 d-none d-lg-inline text-gray-600 small">{{ auth()->user()->name }}</span>
+                                <img class="img-profile rounded-circle" src="{{ auth()->user()->image }}">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -160,15 +162,15 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Logout?</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Apakah anda yakin ingin keluar ?</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <form action="{{ route('user.logout') }}">
+                    <form action="{{ route('user.logout') }}" method="POST">
                         @csrf
                         <button class="btn btn-primary" type="submit">Logout</button>
                     </form>

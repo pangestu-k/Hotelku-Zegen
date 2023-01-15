@@ -39,7 +39,7 @@
                         <tr>
                             <th>#</th>
                             <th>Gambar</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                             <th>Tipe</th>
                             <th>Lantai</th>
                             <th>Harga</th>
@@ -50,7 +50,7 @@
                         <tr>
                             <th>#</th>
                             <th>Gambar</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                             <th>Tipe</th>
                             <th>Lantai</th>
                             <th>Harga</th>

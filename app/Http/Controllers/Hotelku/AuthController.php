@@ -37,7 +37,7 @@ class AuthController extends Controller
             ]);
 
             Auth::attempt(request()->only('email', 'password'));
-            return redirect()->route('profile');
+            return redirect()->route('dashboard');
         } catch (QueryException $errror) {
             return view('errror-page');
         }
@@ -56,7 +56,7 @@ class AuthController extends Controller
             } else {
                 if (Hash::check(request()->password, $user->password)) {
                     Auth::attempt(request()->only('email', 'password'));
-                    return redirect()->route('welcome');
+                    return redirect()->route('dashboard');
                 } else {
                     return back()->with('fail', ['password' => 'Password yang anda masukan salah'])->with('email', request()->email);
                 }

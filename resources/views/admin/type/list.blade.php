@@ -15,13 +15,13 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             <th>#</th>
-                            <th>Name</th>
+                            <th>Nama</th>
                         </tr>
                     </tfoot>
                     <tbody>

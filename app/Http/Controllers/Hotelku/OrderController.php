@@ -93,7 +93,7 @@ class OrderController extends Controller
                 }
                 $img_file = public_path('assets/image/order/' . $img_name);
                 imagepng($im, $img_file, 0);
-                $photo = url('assets/image/profile/user/' . $img_name);
+                $photo = url('assets/image/order/' . $img_name);
 
                 $order->update([
                     'image' => $photo,

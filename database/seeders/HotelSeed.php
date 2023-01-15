@@ -24,7 +24,7 @@ class HotelSeed extends Seeder
                 'email' => 'admin@gmail.com',
                 'role' => 'admin',
                 'password' => Hash::make('password'),
-                'image' => url('assets/image/profile/iki.jpg')
+                'image' => url('assets/image/profile/guest.jpg')
             ]
         ];
 
