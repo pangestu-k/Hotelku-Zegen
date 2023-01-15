@@ -35,7 +35,7 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
     <p>DB_USERNAME=postgres</p>
     <p>DB_PASSWORD=root</p>
     
-    
+    <br>
 
 - php artisan migrate --seed
 
