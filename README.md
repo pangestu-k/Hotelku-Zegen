@@ -13,8 +13,10 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 - Buat Database di mysql atau postgree (postgree ada konfigurasi sendiri)
 - Tulis nama Database di file .env (sesuaikan dengan nama db yg dibuat)
     
+    <br>
     
-    // jika menggukan database mysql
+    <h3>Jika Menggunakan mysql</h3> 
+
     <p>DB_CONNECTION=mysql</p>
     <p>DB_HOST=127.0.0.1</p>
     <p>DB_PORT=3306</p>
@@ -22,9 +24,10 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
     <p>DB_USERNAME=root</p>
     <p>DB_PASSWORD=</p>
     
+    <br>
     
-    
-    // jika menggukan database postgree sql
+    <h3>Jika Menggunakan pgsql (postgre)</h3> 
+
     <p>DB_CONNECTION=pgsql</p>
     <p>DB_HOST=127.0.0.1</p>
     <p>DB_PORT=5432</p>
