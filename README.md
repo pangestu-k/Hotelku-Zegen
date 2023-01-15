@@ -41,12 +41,11 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 
     <br>
     
-    ##
 
 <h6 class="text-gray">Email (admin) : admin@gmail.com</h6>
 <h6 class="text-gray">Password	    : password</h6>
 
-    <br>
+ <br>
 
 Youtube : <a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu" target="_blank">Demo Aplikasi</a>
 
