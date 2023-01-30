@@ -48,9 +48,6 @@ Sebuah Aplikasi Reservasi Hotel yang dibuat untuk mempermudah baik dari sisi pen
 
  <br>
 
-Youtube : <a href="https://www.youtube.com/watch?v=LDdB7Rb3DX8&ab_channel=MuhammadRizkyPangestu" target="_blank">Demo Aplikasi</a>
-Youtube : <a href="https://www.youtube.com/watch?v=IM6abC63SL8&ab_channel=MuhammadRizkyPangestu" target="_blank">Instalasi Aplikasi</a>
-
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
